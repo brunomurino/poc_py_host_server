@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+
+  # docker-compose exec web /bin/bash
+
+  web:
+    build:
+      context: .
+    ports:
+      - 5080:80
+
+  mysql:
+    image: mariadb/server
+    environment:
+      - MARIADB_ROOT_PASSWORD=mypassword
+      - MARIADB_DATABASE=testing_db
+      - MARIADB_USER=bruno
+      - MARIADB_PASSWORD=password
+
+  # mysql -u root -p -h mysql mysql

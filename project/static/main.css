@@ -1,0 +1,30 @@
+body {
+    background-color: rgba(255, 205, 198, 0.3);
+}
+
+h1 {
+    font-size: xx-large;
+    color: black;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+h2 {
+    font-size: xx-large;
+}
+
+input {
+    font-size: xx-large;
+    margin: 20px;
+}
+
+div {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
