@@ -5,10 +5,22 @@ services:
 
   web:
     build:
-      context: .
+      context: ./web
+    depends_on:
+      - mysql
     ports:
       - 5080:80
+    volumes:
+      - type: bind
+        # source: ./
+        # target: /root/host
+        source: ./web/portal
+        target: /root/home/portal
+      - type: bind
+        source: ./web
+        target: /root/host
 
+        
   mysql:
     image: mariadb/server
     environment:
@@ -17,4 +29,5 @@ services:
       - MARIADB_USER=bruno
       - MARIADB_PASSWORD=password
 
-  # mysql -u root -p -h mysql mysql
+  # mysql -u root -pmypassword -h mysql testing_db
+  # mysql -u bruno -ppassword -h mysql testing_db < create_table_numbers.sql
